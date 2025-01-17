@@ -1,0 +1,99 @@
+[gd_scene load_steps=4 format=3 uid="uid://cog45ywyroodj"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_y6rw6"]
+[ext_resource type="Texture2D" uid="uid://c8wnna2i5d21f" path="res://Assets/UI/cover.png" id="3_45hgx"]
+[ext_resource type="PackedScene" uid="uid://wqv5j3lrrreu" path="res://Scenes/VolumeControl.tscn" id="4_gcomr"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_y6rw6")
+
+[node name="Store" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+
+[node name="background_cover" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("3_45hgx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="OuterMargin" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainCanvasItem" type="Control" parent="CanvasLayer/OuterMargin"]
+layout_mode = 2
+
+[node name="VolumeOptions" type="PanelContainer" parent="CanvasLayer/OuterMargin/MainCanvasItem"]
+layout_mode = 1
+offset_left = 1.0
+offset_top = 895.0
+offset_right = 394.0
+offset_bottom = 1047.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/OuterMargin/MainCanvasItem/VolumeOptions"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/OuterMargin/MainCanvasItem/VolumeOptions/MarginContainer"]
+layout_mode = 2
+
+[node name="MainVolume" parent="CanvasLayer/OuterMargin/MainCanvasItem/VolumeOptions/MarginContainer/GridContainer" instance=ExtResource("4_gcomr")]
+layout_mode = 2
+volume_type = "Main"
+audio_bus_name = "Master"
+
+[node name="MusicVolume" parent="CanvasLayer/OuterMargin/MainCanvasItem/VolumeOptions/MarginContainer/GridContainer" instance=ExtResource("4_gcomr")]
+layout_mode = 2
+volume_type = "Music"
+audio_bus_name = "Music"
+
+[node name="EffectsVolume" parent="CanvasLayer/OuterMargin/MainCanvasItem/VolumeOptions/MarginContainer/GridContainer" instance=ExtResource("4_gcomr")]
+layout_mode = 2
+volume_type = "Effects"
+audio_bus_name = "Effects"
+
+[node name="MenuPanel" type="PanelContainer" parent="CanvasLayer/OuterMargin/MainCanvasItem"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/OuterMargin/MainCanvasItem/MenuPanel"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/OuterMargin/MainCanvasItem/MenuPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="CanvasLayer/OuterMargin/MainCanvasItem/MenuPanel/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="CreditsButton" type="Button" parent="CanvasLayer/OuterMargin/MainCanvasItem/MenuPanel/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Credits
+"
+
+[node name="Controls" type="Button" parent="CanvasLayer/OuterMargin/MainCanvasItem/MenuPanel/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Controls
+"
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/OuterMargin/MainCanvasItem/MenuPanel/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="CanvasLayer/OuterMargin/MainCanvasItem/MenuPanel/MarginContainer/GridContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/OuterMargin/MainCanvasItem/MenuPanel/MarginContainer/GridContainer/CreditsButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/OuterMargin/MainCanvasItem/MenuPanel/MarginContainer/GridContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="CanvasLayer/OuterMargin/MainCanvasItem/MenuPanel/MarginContainer/GridContainer/ExitButton" to="." method="_on_exit_button_pressed"]
