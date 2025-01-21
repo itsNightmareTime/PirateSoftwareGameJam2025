@@ -1,17 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://niftoni2jibj"]
+[gd_scene load_steps=2 format=3 uid="uid://niftoni2jibj"]
 
 [ext_resource type="Script" path="res://Scripts/controls_screen.gd" id="1_w3db8"]
-[ext_resource type="Texture2D" uid="uid://c8wnna2i5d21f" path="res://Assets/UI/cover.png" id="2_acbkm"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_w3db8")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-
-[node name="Cover" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-texture = ExtResource("2_acbkm")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -25,23 +17,11 @@ offset_bottom = 123.0
 layout_mode = 2
 text = "Back"
 
-[node name="Lungs#lung_text" type="Label" parent="."]
-offset_left = -274.0
-offset_top = -328.0
-offset_right = 296.0
-offset_bottom = -72.0
-text = "Keep your breathing under control. When the lungs are highlighted you can hold your left mouse button down to take a deep breath. don't let go until the breath is complete. letting go too soon will make your breaths more rapid.  Watch out, Hyperventilating will add to your frustration! Try practicing below!"
-autowrap_mode = 3
-
 [node name="Title" type="Label" parent="."]
 offset_left = 642.0
 offset_right = 1271.0
 offset_bottom = 205.0
 theme_override_font_sizes/font_size = 150
 text = "Controls"
-
-[node name="frustration" type="Node" parent="."]
-
-[node name="scanning" type="Node" parent="."]
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/Button" to="." method="_on_button_pressed"]
