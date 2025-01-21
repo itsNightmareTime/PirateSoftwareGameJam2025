@@ -25,20 +25,7 @@ offset_bottom = 123.0
 layout_mode = 2
 text = "Back"
 
-[node name="Lungs" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-position = Vector2(1589, 902)
-script = null
-
-[node name="lung_text" type="Label" parent="Lungs"]
+[node name="Lungs#lung_text" type="Label" parent="."]
 offset_left = -274.0
 offset_top = -328.0
 offset_right = 296.0
@@ -56,29 +43,5 @@ text = "Controls"
 [node name="frustration" type="Node" parent="."]
 
 [node name="scanning" type="Node" parent="."]
-
-[node name="A" type="Sprite2D" parent="."]
-position = Vector2(236, 904)
-scale = Vector2(0.42, 0.42)
-
-[node name="S" type="Sprite2D" parent="."]
-position = Vector2(334, 847)
-scale = Vector2(0.42, 0.42)
-
-[node name="D" type="Sprite2D" parent="."]
-position = Vector2(429, 906)
-scale = Vector2(0.42, 0.42)
-
-[node name="Blank" type="Sprite2D" parent="."]
-position = Vector2(332, 906)
-scale = Vector2(0.42, 0.42)
-
-[node name="W" type="Sprite2D" parent="."]
-position = Vector2(333, 973)
-scale = Vector2(0.42, 0.42)
-
-[node name="Lmb" type="Sprite2D" parent="."]
-position = Vector2(1398, 970)
-scale = Vector2(0.42, 0.42)
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/Button" to="." method="_on_button_pressed"]
